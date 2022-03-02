@@ -15,7 +15,7 @@ void test1()
 	cout << wzry::sun_wu_kong_Id << endl;
 }
 
-int main(int argc, char* argv[])
+int main_func(int argc, char* argv[])
 {
 	test1();
 	return EXIT_SUCCESS;

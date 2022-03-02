@@ -22,6 +22,8 @@
     <ClCompile Include="01-HelloWorld.cpp" />
     <ClCompile Include="02-双冒号作用域运算符.cpp" />
     <ClCompile Include="03-namespace.cpp" />
+    <ClCompile Include="C++对C语言的增强-C.c" />
+    <ClCompile Include="C++对C语言的增强-Cpp.cpp" />
     <ClCompile Include="game1.cpp" />
     <ClCompile Include="game2.cpp" />
     <ClCompile Include="using.cpp" />

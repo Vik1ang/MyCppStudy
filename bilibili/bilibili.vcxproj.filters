@@ -28,6 +28,9 @@
     <Filter Include="源文件\04-using">
       <UniqueIdentifier>{f0fc1a79-78aa-4379-be6e-dfdd73eafb55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\05-C++对C语言的增强">
+      <UniqueIdentifier>{51673e46-a503-407f-b415-4fe54c7b4647}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-HelloWorld.cpp">
@@ -47,6 +50,12 @@
     </ClCompile>
     <ClCompile Include="using.cpp">
       <Filter>源文件\04-using</Filter>
+    </ClCompile>
+    <ClCompile Include="C++对C语言的增强-C.c">
+      <Filter>源文件\05-C++对C语言的增强</Filter>
+    </ClCompile>
+    <ClCompile Include="C++对C语言的增强-Cpp.cpp">
+      <Filter>源文件\05-C++对C语言的增强</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

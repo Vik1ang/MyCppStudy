@@ -62,7 +62,7 @@ void test04()
 	cout << another_name::m_a << endl;
 }
 
-int main(int argc, char* argv[])
+int main_func(int argc, char* argv[])
 {
 	test01();
 	test02();
