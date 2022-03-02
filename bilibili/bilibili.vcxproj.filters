@@ -25,6 +25,9 @@
     <Filter Include="头文件\03-namespace">
       <UniqueIdentifier>{fb676ba1-6f6f-4173-a5ca-d7952c6b205e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\04-using">
+      <UniqueIdentifier>{f0fc1a79-78aa-4379-be6e-dfdd73eafb55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-HelloWorld.cpp">
@@ -41,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="game2.cpp">
       <Filter>源文件\03-namespace</Filter>
+    </ClCompile>
+    <ClCompile Include="using.cpp">
+      <Filter>源文件\04-using</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
