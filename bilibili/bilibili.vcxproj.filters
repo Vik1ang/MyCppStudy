@@ -16,10 +16,39 @@
     <Filter Include="源文件\01-HelloWorld">
       <UniqueIdentifier>{808296f5-b9b2-40f8-8504-a959cdae2af6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\02-双冒号作用域运算符">
+      <UniqueIdentifier>{88d17f2e-2604-4fc9-a095-fa23046ae096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\03-namespace">
+      <UniqueIdentifier>{41f34f75-9084-432b-a0cf-966de1a374bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\03-namespace">
+      <UniqueIdentifier>{fb676ba1-6f6f-4173-a5ca-d7952c6b205e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-HelloWorld.cpp">
       <Filter>源文件\01-HelloWorld</Filter>
     </ClCompile>
+    <ClCompile Include="02-双冒号作用域运算符.cpp">
+      <Filter>源文件\02-双冒号作用域运算符</Filter>
+    </ClCompile>
+    <ClCompile Include="03-namespace.cpp">
+      <Filter>源文件\03-namespace</Filter>
+    </ClCompile>
+    <ClCompile Include="game1.cpp">
+      <Filter>源文件\03-namespace</Filter>
+    </ClCompile>
+    <ClCompile Include="game2.cpp">
+      <Filter>源文件\03-namespace</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game1.h">
+      <Filter>头文件\03-namespace</Filter>
+    </ClInclude>
+    <ClInclude Include="game2.h">
+      <Filter>头文件\03-namespace</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
