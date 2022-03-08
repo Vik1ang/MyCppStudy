@@ -60,6 +60,23 @@ void test05()
 	flag = 100;
 	cout << flag << endl;
 }
+
+// 7. const 增强
+const int m_A = 10;
+// C++ const不会分配内存
+void test07()
+{
+	//m_A = 100;
+	const int m_B = 20;
+	//m_B = 100;
+	int* p = (int*)&m_B;
+	*p = 200;
+	cout << "*p = " << *p << endl;
+	cout << "m_B = " << m_B << endl;
+
+	int arr[m_B]; // c语言不可以这么操作, c++可以
+}
+
 int main_func(int argc, char* argv[])
 {
 	return EXIT_SUCCESS;
