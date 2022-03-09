@@ -28,8 +28,13 @@
     <ClCompile Include="game1.cpp" />
     <ClCompile Include="game2.cpp" />
     <ClCompile Include="using.cpp" />
+    <ClCompile Include="作业案例1.cpp" />
+    <ClCompile Include="内联函数.cpp" />
     <ClCompile Include="参数的传递.cpp" />
+    <ClCompile Include="常量引用.cpp" />
     <ClCompile Include="引用.cpp" />
+    <ClCompile Include="指针引用.cpp" />
+    <ClCompile Include="重载.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game1.h" />

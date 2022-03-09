@@ -13,67 +13,100 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\01-HelloWorld">
-      <UniqueIdentifier>{808296f5-b9b2-40f8-8504-a959cdae2af6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\02-双冒号作用域运算符">
-      <UniqueIdentifier>{88d17f2e-2604-4fc9-a095-fa23046ae096}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\03-namespace">
-      <UniqueIdentifier>{41f34f75-9084-432b-a0cf-966de1a374bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\03-namespace">
       <UniqueIdentifier>{fb676ba1-6f6f-4173-a5ca-d7952c6b205e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\04-using">
+    <Filter Include="源文件\02-类">
+      <UniqueIdentifier>{715d2179-5215-4306-b1d8-97eb3b5d9688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础">
+      <UniqueIdentifier>{bf2a0611-577b-491b-9413-60dfcbd262ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\01-HelloWorld">
+      <UniqueIdentifier>{808296f5-b9b2-40f8-8504-a959cdae2af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\02-双冒号作用域运算符">
+      <UniqueIdentifier>{88d17f2e-2604-4fc9-a095-fa23046ae096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\03-namespace">
+      <UniqueIdentifier>{41f34f75-9084-432b-a0cf-966de1a374bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\04-using">
       <UniqueIdentifier>{f0fc1a79-78aa-4379-be6e-dfdd73eafb55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\05-C++对C语言的增强">
+    <Filter Include="源文件\01-基础\05-C++对C语言的增强">
       <UniqueIdentifier>{51673e46-a503-407f-b415-4fe54c7b4647}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\09-const内存">
+    <Filter Include="源文件\01-基础\09-const内存">
       <UniqueIdentifier>{dbfda530-5af8-42db-a1a1-933a40e62b39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\10-引用">
+    <Filter Include="源文件\01-基础\10-引用">
       <UniqueIdentifier>{b18f419c-e2a4-47d3-bd76-52f4f69242d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\11-参数的传递">
+    <Filter Include="源文件\01-基础\11-参数的传递">
       <UniqueIdentifier>{1d3b0fd5-0764-444b-95a9-5153da611cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\12-指针引用">
+      <UniqueIdentifier>{ec7b33f7-a2e4-48e3-96bc-1ebde5a7d268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\01-基础\13-常量引用.cpp">
+      <UniqueIdentifier>{82ef78ce-22fb-401e-8855-62067feed480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\02-类\作业1">
+      <UniqueIdentifier>{28d2a8f1-c5ca-4abc-bc57-fd0cae1c757b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\02-类\重载">
+      <UniqueIdentifier>{ddd4b2d0-7745-4ca0-ab8e-2d9a2a40d8a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-HelloWorld.cpp">
-      <Filter>源文件\01-HelloWorld</Filter>
+      <Filter>源文件\01-基础\01-HelloWorld</Filter>
     </ClCompile>
     <ClCompile Include="02-双冒号作用域运算符.cpp">
-      <Filter>源文件\02-双冒号作用域运算符</Filter>
+      <Filter>源文件\01-基础\02-双冒号作用域运算符</Filter>
     </ClCompile>
     <ClCompile Include="03-namespace.cpp">
-      <Filter>源文件\03-namespace</Filter>
+      <Filter>源文件\01-基础\03-namespace</Filter>
     </ClCompile>
     <ClCompile Include="game1.cpp">
-      <Filter>源文件\03-namespace</Filter>
+      <Filter>源文件\01-基础\03-namespace</Filter>
     </ClCompile>
     <ClCompile Include="game2.cpp">
-      <Filter>源文件\03-namespace</Filter>
+      <Filter>源文件\01-基础\03-namespace</Filter>
     </ClCompile>
     <ClCompile Include="using.cpp">
-      <Filter>源文件\04-using</Filter>
+      <Filter>源文件\01-基础\04-using</Filter>
     </ClCompile>
     <ClCompile Include="C++对C语言的增强-C.c">
-      <Filter>源文件\05-C++对C语言的增强</Filter>
+      <Filter>源文件\01-基础\05-C++对C语言的增强</Filter>
     </ClCompile>
     <ClCompile Include="C++对C语言的增强-Cpp.cpp">
-      <Filter>源文件\05-C++对C语言的增强</Filter>
+      <Filter>源文件\01-基础\05-C++对C语言的增强</Filter>
     </ClCompile>
     <ClCompile Include="const内存.cpp">
-      <Filter>源文件\09-const内存</Filter>
+      <Filter>源文件\01-基础\09-const内存</Filter>
     </ClCompile>
     <ClCompile Include="引用.cpp">
-      <Filter>源文件\10-引用</Filter>
+      <Filter>源文件\01-基础\10-引用</Filter>
     </ClCompile>
     <ClCompile Include="参数的传递.cpp">
-      <Filter>源文件\11-参数的传递</Filter>
+      <Filter>源文件\01-基础\11-参数的传递</Filter>
+    </ClCompile>
+    <ClCompile Include="指针引用.cpp">
+      <Filter>源文件\01-基础\12-指针引用</Filter>
+    </ClCompile>
+    <ClCompile Include="常量引用.cpp">
+      <Filter>源文件\01-基础\13-常量引用.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="作业案例1.cpp">
+      <Filter>源文件\02-类\作业1</Filter>
+    </ClCompile>
+    <ClCompile Include="内联函数.cpp">
+      <Filter>源文件\02-类\作业1</Filter>
+    </ClCompile>
+    <ClCompile Include="重载.cpp">
+      <Filter>源文件\02-类\重载</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
