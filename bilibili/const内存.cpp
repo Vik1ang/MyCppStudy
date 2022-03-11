@@ -31,7 +31,7 @@ struct Person
 
 void test03()
 {
-	const Person p1;
+	Person p1;
 	//p1.m_Name = "aaa";
 	Person* p = (Person*)&p1;
 	p->m_Name = "m_Name";
