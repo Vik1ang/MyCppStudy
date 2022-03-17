@@ -1,6 +1,6 @@
 ﻿#include "Calculator.h"
 
-void test1()
+void string_study()
 {
 	AbstracCalculator* abc = new PlusCalculator;
 	abc->set_v1(10);
@@ -17,6 +17,6 @@ void test1()
 
 int main(int argc, char* argv[])
 {
-	test1();
+	string_study();
 	return EXIT_SUCCESS;
 }

@@ -2,7 +2,7 @@
 
 #include "MyString.h"
 
-void test1()
+void string_study()
 {
 	MyString str = "abc";
 
@@ -24,6 +24,6 @@ void test1()
 
 int main(int argc, char* argv[])
 {
-	test1();
+	string_study();
 	return EXIT_SUCCESS;
 }
