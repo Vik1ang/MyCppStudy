@@ -1,5 +1,6 @@
 ﻿#include <deque>
 #include <iostream>
+#include <random>
 #include <string>
 #include <vector>
 #include <deque>
@@ -578,6 +579,54 @@ void find_study()
 	std::cout << "大于4的个数为" << count << std::endl;
 }
 
+void sort_study()
+{
+	std::vector<int>v1;
+	std::vector<int>v2;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i);
+		v2.push_back(i + 1);
+	}
+
+	std::vector<int> v_target;
+	v_target.resize(v1.size() + v2.size());
+	std::merge(v1.begin(), v1.end(), v2.begin(), v2.end(), v_target.begin());
+	std::for_each(v_target.begin(), v_target.end(), [](const int val) { std::cout << val << " "; });
+	std::cout << std::endl;
+
+	v1.clear();
+	v1.push_back(10);
+	v1.push_back(40);
+	v1.push_back(20);
+	v1.push_back(90);
+	v1.push_back(50);
+
+	std::sort(v1.begin(), v1.end());
+	helper::print_container(v1);
+
+	std::sort(v1.begin(), v1.end(), std::greater<int>());
+	helper::print_container(v1);
+
+	v1.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i);
+	}
+	//std::random_shuffle(v1.begin(), v1.end());
+	std::shuffle(v1.begin(), v1.end(), std::mt19937(std::random_device()()));
+	helper::print_container(v1);
+
+	v1.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i);
+	}
+	std::reverse(v1.begin(), v1.end());
+	helper::print_container(v1);
+}
+
 int main(int argc, char* argv[])
 {
 	helper::print("********string********");
@@ -609,5 +658,8 @@ int main(int argc, char* argv[])
 	traverse_study();
 	helper::print("********查找********");
 	find_study();
+	helper::print("********排序********");
+	sort_study();
+	helper::print("********拷贝和替换********");
 	return EXIT_SUCCESS;
 }

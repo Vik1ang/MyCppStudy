@@ -243,3 +243,7 @@ namespace find_helper
 		}
 	};
 }
+
+namespace sort_helper
+{
+}
