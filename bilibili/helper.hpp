@@ -199,3 +199,47 @@ namespace traverse_helper
 		}
 	};
 }
+
+namespace find_helper
+{
+	class Person
+	{
+	public:
+		Person(const std::string name, const int age) : m_Name(name), m_Age(age)
+		{
+		}
+		bool operator==(const Person& p) const
+		{
+			if (this->m_Name == p.m_Name && this->m_Age == p.m_Age)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		std::string m_Name;
+		int m_Age;
+	};
+
+	class MyCompare : public std::binary_function<Person*, Person*, bool>
+	{
+	public:
+		bool operator()(const Person* p1, const Person* p2) const
+		{
+			if (p1->m_Name == p2->m_Name && p1->m_Age == p2->m_Age)
+			{
+				return true;
+			}
+			return false;
+		}
+	};
+
+	class GreaterThan4
+	{
+	public:
+		bool operator()(const int val) const
+		{
+			return val > 4;
+		}
+	};
+}

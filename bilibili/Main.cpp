@@ -462,6 +462,122 @@ void traverse_study()
 	std::cout << std::endl;
 }
 
+void find_study()
+{
+	std::vector<int> v;
+	v.reserve(10);
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::vector<int>::iterator pos = std::find(v.begin(), v.end(), 5);
+	if (pos != v.end())
+	{
+		std::cout << "找到了" << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	std::vector<find_helper::Person> v_person;
+	find_helper::Person p1("aaa", 10);
+	find_helper::Person p2("bbb", 20);
+	find_helper::Person p3("ccc", 30);
+	find_helper::Person p4("ddd", 40);
+	v_person.push_back(p1);
+	v_person.push_back(p2);
+	v_person.push_back(p3);
+	v_person.push_back(p4);
+
+	auto pos1 = std::find(v_person.begin(), v_person.end(), p2);
+	if (pos1 != v_person.end())
+	{
+		std::cout << "找到了" << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	std::vector<find_helper::Person*> v_person_ptr;
+	find_helper::Person p1_ptr("aaa", 10);
+	find_helper::Person p2_ptr("bbb", 20);
+	find_helper::Person p3_ptr("ccc", 30);
+	find_helper::Person p4_ptr("ddd", 40);
+	v_person_ptr.push_back(&p1_ptr);
+	v_person_ptr.push_back(&p2_ptr);
+	v_person_ptr.push_back(&p3_ptr);
+	v_person_ptr.push_back(&p4_ptr);
+
+	auto p_ptr = new find_helper::Person("bbb", 21);
+	std::find(v_person_ptr.begin(), v_person_ptr.end(), p_ptr);
+	auto pos2 = std::find_if(
+		v_person_ptr.begin(),
+		v_person_ptr.end(),
+		std::bind2nd(find_helper::MyCompare(), p_ptr)
+	);
+	if (pos2 != v_person_ptr.end())
+	{
+		std::cout << "找到了" << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	v.clear();
+	v.push_back(2);
+	v.push_back(3);
+	v.push_back(4);
+	v.push_back(5);
+	v.push_back(5);
+	v.push_back(6);
+	v.push_back(2);
+
+	auto pos3 = std::adjacent_find(v.begin(), v.end());
+	if (pos3 != v.end())
+	{
+		std::cout << *pos3 << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	bool ret = std::binary_search(v.begin(), v.end(), 4);
+	if (ret)
+	{
+		std::cout << "找到了" << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	v.push_back(4);
+	v.push_back(4);
+	v.push_back(4);
+	v.push_back(4);
+	v.push_back(4);
+
+	ptrdiff_t count = std::count(v.begin(), v.end(), 4);
+	std::cout << "4的个数为" << count << std::endl;
+
+	count = std::count_if(v.begin(), v.end(), find_helper::GreaterThan4());
+	std::cout << "大于4的个数为" << count << std::endl;
+}
+
 int main(int argc, char* argv[])
 {
 	helper::print("********string********");
@@ -492,5 +608,6 @@ int main(int argc, char* argv[])
 	helper::print("********遍历********");
 	traverse_study();
 	helper::print("********查找********");
+	find_study();
 	return EXIT_SUCCESS;
 }
