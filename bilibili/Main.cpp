@@ -3,62 +3,14 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <functional>
 #include <list>
 #include <queue>
 #include <set>
 #include <stack>
 #include <stdexcept>
 
-namespace helper
-{
-	template<typename T>
-	void print_container(const T& v)
-	{
-		for (const auto value : v)
-		{
-			std::cout << value << " ";
-		}
-		std::cout << std::endl;
-	}
-
-	template<typename T>
-	void print_vector_reverse(const std::vector<T>& v)
-	{
-		for (auto it = v.rbegin(); it != v.rend(); ++it)
-		{
-			std::cout << *it << " ";
-		}
-		std::cout << std::endl;
-	}
-
-	void swap_resize_helper()
-	{
-		std::vector<int> v;
-		for (int i = 0; i < 10000; ++i)
-		{
-			v.push_back(i);
-		}
-		std::cout << "v的容量" << v.capacity() << std::endl;
-		std::cout << "v的大小" << v.size() << std::endl;
-
-		v.resize(3);
-
-		std::cout << "v的容量" << v.capacity() << std::endl;
-		std::cout << "v的大小" << v.size() << std::endl;
-
-		v.shrink_to_fit();
-		//std::vector<int>(v).swap(v);
-
-		std::cout << "v的容量" << v.capacity() << std::endl;
-		std::cout << "v的大小" << v.size() << std::endl;
-	}
-
-	template<typename T>
-	void print(T v)
-	{
-		std::cout << v << std::endl;
-	}
-}
+#include "helper.hpp"
 
 void string_study()
 {
@@ -316,6 +268,155 @@ void set_study()
 	helper::print(s1.count(7));
 }
 
+void function_object()
+{
+	function_object_helper::MyPrint my_print;
+	my_print(111);
+	function_object_helper::MyPrint()(10000);
+
+	function_object_helper::MyPrint my_print1;
+	my_print1(111);
+	my_print1(111);
+	my_print1(111);
+	my_print1(111);
+	std::cout << "myprint使用次数: " << my_print1.count << std::endl;
+
+	function_object_helper::do_print(function_object_helper::MyPrint(), 20);
+}
+
+void predicate_study()
+{
+	std::vector<int> v;
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+	v.push_back(50);
+
+	// 查找第一个大于20的
+	std::vector<int>::iterator pos = std::find_if(v.begin(), v.end(), predicate_helper::GreaterThan20());
+	if (pos != v.end())
+	{
+		std::cout << "找到大于20" << std::endl;
+	}
+	else
+	{
+		std::cout << "没找到" << std::endl;
+	}
+
+	v.clear();
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+	v.push_back(50);
+
+	std::sort(v.begin(), v.end(), predicate_helper::MyCompare());
+
+	std::for_each(v.begin(), v.end(), [](int val)
+		{
+			std::cout << val << " ";
+		});
+	std::cout << std::endl;
+}
+
+void builtin_function_study()
+{
+	// 取反
+	std::negate<int>n;
+	std::cout << n(10) << std::endl;
+	// 加法
+	std::plus<int>p;
+	std::cout << p(1, 1) << std::endl;
+
+	std::vector<int>v;
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+	v.push_back(50);
+
+	std::sort(v.begin(), v.end(), std::greater<int>());
+	std::for_each(v.begin(), v.end(), [](int val) {std::cout << val << " "; });
+	std::cout << std::endl;
+}
+
+void adapter_study()
+{
+	std::vector<int> v;
+	v.reserve(10);
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	const int num = 5;
+	std::for_each(v.begin(), v.end(), std::bind2nd(adapter_helper::MyPrint(), num));
+	std::for_each(v.begin(), v.end(), std::bind1st(adapter_helper::MyPrint(), num));
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+
+	std::vector<int>::iterator pos = std::find_if(v.begin(), v.end(), std::not1(adapter_helper::GreaterThan5()));
+	if (pos != v.end())
+	{
+		std::cout << "找到了小于5" << std::endl;
+	}
+	else
+	{
+		std::cout << "未找到" << std::endl;
+	}
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+
+	const auto pos1 = std::find_if(
+		v.begin(),
+		v.end(),
+		std::not1(std::bind2nd(std::greater<int>(), 5))
+	);
+	if (pos1 != v.end())
+	{
+		std::cout << "找到了小于5" << std::endl;
+	}
+	else
+	{
+		std::cout << "未找到" << std::endl;
+	}
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::for_each(v.begin(), v.end(), std::bind2nd(std::ptr_fun(adapter_helper::MyPrint3), 100));
+
+	adapter_helper::Person p1("aaa", 10);
+	adapter_helper::Person p2("bbb", 15);
+	adapter_helper::Person p3("ccc", 18);
+	adapter_helper::Person p4("ddd", 40);
+
+	std::vector<adapter_helper::Person>v1;
+	v1.push_back(p1);
+	v1.push_back(p2);
+	v1.push_back(p3);
+	v1.push_back(p4);
+
+	std::for_each(v1.begin(), v1.end(), adapter_helper::MyPrintPerson);
+	std::for_each(v1.begin(), v1.end(), std::mem_fun_ref(&adapter_helper::Person::show_person));
+	std::for_each(v1.begin(), v1.end(), std::mem_fun_ref(&adapter_helper::Person::plus_age));
+	std::for_each(v1.begin(), v1.end(), std::mem_fun_ref(&adapter_helper::Person::show_person));
+}
+
+void traverse_study()
+{
+}
+
 int main(int argc, char* argv[])
 {
 	helper::print("********string********");
@@ -332,5 +433,18 @@ int main(int argc, char* argv[])
 	list_study();
 	helper::print("********set********");
 	set_study();
+
+	helper::print("********algorithm********");
+
+	helper::print("********函数对象********");
+	function_object();
+	helper::print("********谓词********");
+	predicate_study();
+	helper::print("********内建函数对象********");
+	builtin_function_study();
+	helper::print("********适配器********");
+	adapter_study();
+	helper::print("********遍历********");
+	traverse_study();
 	return EXIT_SUCCESS;
 }
