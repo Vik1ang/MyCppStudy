@@ -145,3 +145,57 @@ namespace adapter_helper
 		std::cout << p.m_Name << " " << p.age << std::endl;
 	}
 }
+
+namespace traverse_helper
+{
+	inline void my_print(const int v)
+	{
+		std::cout << v << std::endl;
+	}
+
+	class MyPrint1
+	{
+	public:
+		void operator()(int v) const
+		{
+			std::cout << v << std::endl;
+		}
+	};
+
+	class MyPrint2
+	{
+	public:
+		void operator()(const int v)
+		{
+			std::cout << v << std::endl;
+			m_Count++;
+		}
+		int m_Count;
+	};
+
+	struct my_print3 : std::binary_function<int, int, void>
+	{
+		void operator()(const int v, const int start) const
+		{
+			std::cout << v + start << std::endl;
+		}
+	};
+
+	class TransFrom
+	{
+	public:
+		int operator()(const int val) const
+		{
+			return val + 10;
+		}
+	};
+
+	class TransFrom2
+	{
+	public:
+		int operator()(const int val1, const int val2) const
+		{
+			return val1 + val2;
+		}
+	};
+}

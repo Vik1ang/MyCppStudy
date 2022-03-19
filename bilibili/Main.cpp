@@ -415,6 +415,51 @@ void adapter_study()
 
 void traverse_study()
 {
+	std::vector<int> v;
+	v.reserve(10);
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+
+	std::for_each(v.begin(), v.end(), traverse_helper::my_print);
+	std::for_each(v.begin(), v.end(), traverse_helper::MyPrint1());
+
+	const traverse_helper::MyPrint2 my_print2 = std::for_each(v.begin(), v.end(), traverse_helper::MyPrint2());
+	std::cout << my_print2.m_Count << std::endl;
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+
+	std::for_each(v.begin(), v.end(), std::bind2nd(traverse_helper::my_print3(), 10000));
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::vector<int> v_target;
+
+	v_target.resize(v.size());
+	std::transform(v.begin(), v.end(), v_target.begin(), traverse_helper::TransFrom());
+	std::for_each(v_target.begin(), v_target.end(), [](const int val) {std::cout << val << " "; });
+	std::cout << std::endl;
+
+	std::vector<int> v1;
+	std::vector<int> v2;
+	std::vector<int> v_target1;
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i + 100);
+		v2.push_back(i + 200);
+	}
+	v_target1.resize(v1.size());
+	std::transform(v1.begin(), v1.end(), v2.begin(), v_target1.begin(), traverse_helper::TransFrom2());
+	std::for_each(v_target.begin(), v_target.end(), [](const int val) {std::cout << val << " "; });
+	std::cout << std::endl;
 }
 
 int main(int argc, char* argv[])
@@ -446,5 +491,6 @@ int main(int argc, char* argv[])
 	adapter_study();
 	helper::print("********遍历********");
 	traverse_study();
+	helper::print("********查找********");
 	return EXIT_SUCCESS;
 }
