@@ -314,21 +314,88 @@ void set_study()
 	s1.insert(9);
 	s1.insert(3);
 	s1.insert(7);
-
 	helper::print_container(s1);
 
 	s1.erase(s1.begin());
-	helper::print_container(s1);
-	s1.erase(5);
+	s1.erase(3);
 	helper::print_container(s1);
 
-	std::set<int>::iterator pos = s1.find(7);
-	if (pos != s1.end())
-		helper::println(*pos);
-	else
-		helper::println("未找到");
+	s1.clear();
+	s1.insert(5);
+	s1.insert(1);
+	s1.insert(9);
+	s1.insert(3);
 	s1.insert(7);
-	helper::println(s1.count(7));
+	std::set<int>::iterator pos1 = s1.find(3);
+	if (pos1 != s1.end())
+	{
+		helper::println("找到了");
+	}
+	else
+	{
+		helper::println("没找到");
+	}
+
+	helper::println(s1.count(1));
+	helper::println(s1.count(111));
+
+	std::set<int>::iterator pos2 = s1.lower_bound(3);
+	if (pos2 != s1.end())
+	{
+		helper::println("找到了");
+		helper::println(*pos2);
+	}
+	else
+	{
+		helper::println("没找到");
+	}
+	auto pos3 = s1.upper_bound(3);
+	if (pos3 != s1.end())
+	{
+		helper::println("找到了");
+		helper::println(*pos3);
+	}
+	else
+	{
+		helper::println("没找到");
+	}
+
+	std::pair<std::set<int>::iterator, std::set<int>::iterator> ret = s1.equal_range(3);
+	if (ret.first != s1.end())
+	{
+		std::cout << "找到了" << *ret.first << std::endl;
+	}
+	else
+	{
+		helper::println("没找到");
+	}
+
+	if (ret.second != s1.end())
+	{
+		std::cout << "找到了" << *ret.second << std::endl;
+	}
+	else
+	{
+		helper::println("没找到");
+	}
+
+	std::set<int, set_helper::MyCompare> s2;
+	s2.insert(5);
+	s2.insert(1);
+	s2.insert(9);
+	s2.insert(3);
+	s2.insert(7);
+	helper::print_container(s2);
+
+	std::set<set_helper::Person, set_helper::MyComparePerson> s3;
+	set_helper::Person p1("aaa", 10);
+	set_helper::Person p2("bbb", 9);
+	set_helper::Person p3("ccc", 11);
+	set_helper::Person p4("ddd", 7);
+	s3.insert(p1);
+	s3.insert(p2);
+	s3.insert(p3);
+	s3.insert(p4);
 }
 
 void function_object()

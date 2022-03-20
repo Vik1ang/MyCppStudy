@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include <ostream>
+#include <utility>
 #include <vector>
 
 namespace helper
@@ -91,6 +92,40 @@ namespace list_helper
 		}
 		return false;
 	}
+}
+
+namespace set_helper
+{
+	class MyCompare
+	{
+	public:
+		bool operator()(const int v1, const int v2) const
+		{
+			return v1 > v2;
+		}
+	};
+
+	class Person
+	{
+	public:
+		Person(std::string name, const int age) : m_Name(std::move(name)), m_Age(age) {}
+
+		std::string m_Name;
+		int m_Age;
+	};
+
+	class MyComparePerson
+	{
+	public:
+		bool operator()(const Person& p1, const Person& p2) const
+		{
+			if (p1.m_Age > p2.m_Age)
+			{
+				return true;
+			}
+			return false;
+		}
+	};
 }
 
 namespace function_object_helper
