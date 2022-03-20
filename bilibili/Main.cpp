@@ -6,6 +6,7 @@
 #include <deque>
 #include <functional>
 #include <list>
+#include <map>
 #include <numeric>
 #include <queue>
 #include <set>
@@ -396,6 +397,20 @@ void set_study()
 	s3.insert(p2);
 	s3.insert(p3);
 	s3.insert(p4);
+}
+
+void map_study()
+{
+	std::map<int, int> m1;
+	m1.insert(std::pair<int, int>(1, 10));
+	m1.insert(std::make_pair(2, 20));
+	m1.insert(std::map<int, int>::value_type(3, 30));
+	m1[4] = 40;
+
+	for (const std::pair<const int, int> pair : m1)
+	{
+		std::cout << "key=" << pair.first << " value=" << pair.second << std::endl;
+	}
 }
 
 void function_object()
@@ -873,6 +888,8 @@ int main(int argc, char* argv[])
 		list_study();
 		helper::println("********set********");
 		set_study();
+		helper::println("********map********");
+		map_study();
 	}
 	/*{
 		helper::println("********algorithm********");
