@@ -6,6 +6,7 @@
 #include <deque>
 #include <functional>
 #include <list>
+#include <numeric>
 #include <queue>
 #include <set>
 #include <stack>
@@ -152,8 +153,8 @@ void vector_study()
 	v.push_back(30);
 	v.push_back(20);
 	v.push_back(50);
-	helper::print(v.front());
-	helper::print(v.back());
+	helper::println(v.front());
+	helper::println(v.back());
 
 	// 插入和删除
 	v.insert(v.begin(), 100);
@@ -165,7 +166,7 @@ void vector_study()
 	v.erase(v.begin());
 	helper::print_container(v);
 	v.erase(v.begin(), v.end());
-	helper::print(v.empty());
+	helper::println(v.empty());
 
 	// 逆序遍历
 	v.clear();
@@ -205,8 +206,8 @@ void deque_study()
 	d.pop_front();
 	helper::print_container(d);
 
-	helper::print(d.front());
-	helper::print(d.back());
+	helper::println(d.front());
+	helper::println(d.back());
 
 	d2.clear();
 	d2.push_back(50);
@@ -262,11 +263,11 @@ void set_study()
 
 	std::set<int>::iterator pos = s1.find(7);
 	if (pos != s1.end())
-		helper::print(*pos);
+		helper::println(*pos);
 	else
-		helper::print("未找到");
+		helper::println("未找到");
 	s1.insert(7);
-	helper::print(s1.count(7));
+	helper::println(s1.count(7));
 }
 
 void function_object()
@@ -627,39 +628,147 @@ void sort_study()
 	helper::print_container(v1);
 }
 
+void copy_replace_study()
+{
+	std::vector<int> v;
+	v.reserve(10);
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::vector<int> v_target;
+	v_target.resize(v.size());
+
+	std::copy(v.begin(), v.end(), v_target.begin());
+	helper::print_container(v_target);
+
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::replace(v.begin(), v.end(), 3, 300);
+	helper::print_container(v);
+
+	v.clear();
+	v.clear();
+	for (int i = 0; i < 10; ++i)
+	{
+		v.push_back(i);
+	}
+	std::replace_if(v.begin(), v.end(), copy_replace_helper::MyCompare(), 30000);
+	helper::print_container(v);
+
+	std::vector<int> v1;
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i);
+	}
+	std::vector<int> v2;
+	v2.push_back(10);
+	v2.push_back(30);
+	v2.push_back(20);
+	v2.push_back(40);
+	helper::println("交换前");
+	helper::print_container(v1);
+	helper::print_container(v2);
+	std::swap(v1, v2);
+	helper::println("交换后");
+	helper::print_container(v1);
+	helper::print_container(v2);
+}
+
+void arithmetic_generation_study()
+{
+	std::vector<int> v;
+	for (int i = 0; i <= 100; ++i)
+	{
+		v.push_back(i);
+	}
+	int sum = std::accumulate(v.begin(), v.end(), 1000);
+	helper::println(sum);
+
+	v.clear();
+	v.resize(10);
+	std::fill(v.begin(), v.end(), 1000);
+	helper::print_container(v);
+}
+
+void collections_study()
+{
+	std::vector<int> v1;
+	std::vector<int> v2;
+	for (int i = 0; i < 10; ++i)
+	{
+		v1.push_back(i);
+		v2.push_back(i + 5);
+	}
+	std::vector<int> v_target;
+	v_target.resize(std::min(v1.size(), v2.size()));
+	const std::vector<int>::iterator it_end = std::set_intersection(
+		v1.begin(),
+		v1.end(),
+		v2.begin(),
+		v2.end(),
+		v_target.begin()
+	);
+	std::for_each(v_target.begin(), it_end, [](const int val) {helper::print(val); });
+	std::cout << std::endl;
+
+	v_target.clear();
+	v_target.resize(v1.size() + v2.size());
+	auto it_end1 = std::set_union(v1.begin(), v1.end(), v2.begin(), v2.end(), v_target.begin());
+	std::for_each(v_target.begin(), it_end1, [](const int val) {helper::print(val); });
+	std::cout << std::endl;
+
+	v_target.clear();
+	v_target.resize(std::max(v1.size(), v2.size()));
+	auto it_end2 = std::set_difference(v1.begin(), v1.end(), v2.begin(), v2.end(), v_target.begin());
+	std::for_each(v_target.begin(), it_end2, [](const int val) {helper::print(val); });
+	std::cout << std::endl;
+}
+
 int main(int argc, char* argv[])
 {
-	helper::print("********string********");
-	string_study();
-	helper::print("********vector********");
-	vector_study();
-	helper::print("********deque********");
-	deque_study();
-	helper::print("********stack********");
-	stack_study();
-	helper::print("********queue********");
-	queue_study();
-	helper::print("********list********");
-	list_study();
-	helper::print("********set********");
-	set_study();
+	{
+		helper::println("********string********");
+		string_study();
+		helper::println("********vector********");
+		vector_study();
+		helper::println("********deque********");
+		deque_study();
+		helper::println("********stack********");
+		stack_study();
+		helper::println("********queue********");
+		queue_study();
+		helper::println("********list********");
+		list_study();
+		helper::println("********set********");
+		set_study();
+	}
+	{
+		helper::println("********algorithm********");
 
-	helper::print("********algorithm********");
-
-	helper::print("********函数对象********");
-	function_object();
-	helper::print("********谓词********");
-	predicate_study();
-	helper::print("********内建函数对象********");
-	builtin_function_study();
-	helper::print("********适配器********");
-	adapter_study();
-	helper::print("********遍历********");
-	traverse_study();
-	helper::print("********查找********");
-	find_study();
-	helper::print("********排序********");
-	sort_study();
-	helper::print("********拷贝和替换********");
+		helper::println("********函数对象********");
+		function_object();
+		helper::println("********谓词********");
+		predicate_study();
+		helper::println("********内建函数对象********");
+		builtin_function_study();
+		helper::println("********适配器********");
+		adapter_study();
+		helper::println("********遍历********");
+		traverse_study();
+		helper::println("********查找********");
+		find_study();
+		helper::println("********排序********");
+		sort_study();
+		helper::println("********拷贝和替换********");
+		copy_replace_study();
+		helper::println("********算数生成********");
+		arithmetic_generation_study();
+		helper::println("********集合算法********");
+		collections_study();
+	}
 	return EXIT_SUCCESS;
 }

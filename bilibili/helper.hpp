@@ -48,9 +48,15 @@ namespace helper
 	}
 
 	template<typename T>
-	void print(T v)
+	void println(T v)
 	{
 		std::cout << v << std::endl;
+	}
+
+	template<typename T>
+	void print(T v)
+	{
+		std::cout << v;
 	}
 }
 
@@ -244,6 +250,14 @@ namespace find_helper
 	};
 }
 
-namespace sort_helper
+namespace copy_replace_helper
 {
+	class MyCompare
+	{
+	public:
+		bool operator()(const int val) const
+		{
+			return val > 3;
+		}
+	};
 }
