@@ -239,10 +239,71 @@ void queue_study()
 
 void list_study()
 {
-	std::list<int> l(10, 10);
-	helper::print_container(l);
-	std::list<int> l2(l.begin(), l.end());
+	std::list<int> l1(10, 10);
+	std::list<int> l2(l1.begin(), l1.end());
+	helper::print_container(l1);
 	helper::print_container(l2);
+
+	std::list<int> l3;
+	l3.push_back(10);
+	l3.push_back(30);
+	l3.push_back(20);
+	l3.push_front(100);
+	l3.push_front(200);
+	l3.push_front(300);
+	helper::print_container(l3);
+	l3.pop_front();
+	l3.pop_back();
+	helper::print_container(l3);
+	l3.insert(l3.begin(), 1000);
+	helper::print_container(l3);
+
+	l3.remove(10);
+	helper::print_container(l3);
+
+	l3.clear();
+	l3.push_back(10);
+	l3.push_back(30);
+	l3.push_back(20);
+	l3.push_front(100);
+	l3.push_front(200);
+	l3.push_front(300);
+
+	std::list<int> l4;
+	l4.push_back(10);
+	l4.push_back(20);
+	l4.push_back(40);
+	l4.push_back(30);
+	l4.reverse();
+	helper::print_container(l4);
+	l4.sort();
+	helper::print_container(l4);
+	l4.sort(list_helper::my_compare);
+	helper::print_container(l4);
+
+	std::list<list_helper::Person>l5;
+	list_helper::Person p1("aaa", 10);
+	list_helper::Person p2("bbb", 20);
+	list_helper::Person p3("ccc", 17);
+	list_helper::Person p4("ddd", 19);
+	list_helper::Person p5("eee", 18);
+	l5.push_back(p1);
+	l5.push_back(p2);
+	l5.push_back(p3);
+	l5.push_back(p4);
+	l5.push_back(p5);
+	l5.sort(list_helper::my_compare_person);
+	for (const auto& person : l5)
+	{
+		std::cout << "Name: " << person.m_Name << " Age: " << person.m_Age;
+	}
+	std::cout << std::endl;
+	l5.remove(p1);
+	for (const auto& person : l5)
+	{
+		std::cout << "Name: " << person.m_Name << " Age: " << person.m_Age;
+	}
+	std::cout << std::endl;
 }
 
 void set_study()
@@ -746,7 +807,7 @@ int main(int argc, char* argv[])
 		helper::println("********set********");
 		set_study();
 	}
-	{
+	/*{
 		helper::println("********algorithm********");
 
 		helper::println("********函数对象********");
@@ -769,6 +830,6 @@ int main(int argc, char* argv[])
 		arithmetic_generation_study();
 		helper::println("********集合算法********");
 		collections_study();
-	}
+	}*/
 	return EXIT_SUCCESS;
 }

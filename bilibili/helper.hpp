@@ -60,6 +60,39 @@ namespace helper
 	}
 }
 
+namespace list_helper
+{
+	inline bool my_compare(const int v1, const int v2)
+	{
+		return v1 > v2;
+	}
+
+	class Person
+	{
+	public:
+		Person(std::string name, const int age) : m_Name(std::move(name)), m_Age(age) {}
+		bool operator==(const Person& p) const
+		{
+			if (this->m_Name == p.m_Name && this->m_Age == p.m_Age)
+			{
+				return true;
+			}
+			return false;
+		}
+		std::string m_Name;
+		int m_Age;
+	};
+
+	inline bool my_compare_person(const Person& p1, const Person& p2)
+	{
+		if (p1.m_Age > p2.m_Age)
+		{
+			return true;
+		}
+		return false;
+	}
+}
+
 namespace function_object_helper
 {
 	class MyPrint
