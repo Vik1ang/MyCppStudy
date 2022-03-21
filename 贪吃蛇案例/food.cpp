@@ -1,7 +1,16 @@
 ﻿#include "food.h"
 
+void gotoxy2(HANDLE hOut, int x, int y)
+{
+	COORD pos;
+	pos.X = x;
+	pos.Y = y;
+	SetConsoleCursorPosition(hOut, pos);
+}
 
-Food::Food(Wall& temp_wall):wall(temp_wall){}
+HANDLE h_out2 = GetStdHandle(STD_OUTPUT_HANDLE);
+
+Food::Food(Wall& temp_wall) :wall(temp_wall) {}
 
 void Food::set_food()
 {
@@ -14,6 +23,8 @@ void Food::set_food()
 		if (wall.get_wall(food_x, food_y) == ' ')
 		{
 			wall.set_wall(food_x, food_y, '#');
+			gotoxy2(h_out2, food_y * 2, food_x);
+			std::cout << "#";
 			break;
 		}
 	}

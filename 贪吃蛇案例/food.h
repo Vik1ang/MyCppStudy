@@ -2,6 +2,7 @@
 
 #include <cstdlib>
 #include "wall.h"
+#include <Windows.h>
 
 class Food
 {
