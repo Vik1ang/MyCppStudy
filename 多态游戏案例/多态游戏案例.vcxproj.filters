@@ -15,19 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyArray.cpp">
+    <ClInclude Include="Weapon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DragonSword.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="knife.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DragonSword.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MyArray.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="helper.hpp">
-      <Filter>源文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
