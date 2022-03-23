@@ -29,11 +29,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Leetcode.h">
-      <Filter>头文件\q1</Filter>
-    </ClInclude>
     <ClInclude Include="q1\Solution1.h">
       <Filter>头文件\q1</Filter>
+    </ClInclude>
+    <ClInclude Include="Leetcode.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
