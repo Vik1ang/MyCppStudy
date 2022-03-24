@@ -35,5 +35,8 @@
     <ClInclude Include="q2.hpp">
       <Filter>头文件\q2</Filter>
     </ClInclude>
+    <ClInclude Include="data_structure.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
