@@ -140,11 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Leetcode.cpp" />
-    <ClCompile Include="q1\Solution1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Leetcode.h" />
-    <ClInclude Include="q1\Solution1.h" />
+    <ClInclude Include="q1\q1.hpp" />
+    <ClInclude Include="q2.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,4 @@
 #pragma once
 #include <iostream>
-#include "q1/Solution1.h"
+
+#include "q1/q1.hpp"
