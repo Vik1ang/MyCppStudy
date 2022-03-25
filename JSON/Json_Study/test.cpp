@@ -15,16 +15,32 @@ void expect_eq_base(T equality, K expect, S actual, M format)
 			test_pass++;
 		}
 		else {
-			fprintf(stderr, "%s:%d: expect: %d actual: %d", __FILE__, __LINE__, expect, actual);
+			fprintf(stderr, "%s:%d: expect: %d actual: %d ", __FILE__, __LINE__, expect, actual);
 			main_ret = 1;
 		}
-	} while (true);
+	} while (false);
 }
 
 template <typename T, typename K>
 void expect_eq_int(T expect, K actual)
 {
 	expect_eq_base((expect) == (actual), expect, actual, "%d");
+}
+
+static void test_parse_true()
+{
+	lept_value v;
+	v.type = LEPT_FALSE;
+	expect_eq_int(LEPT_PARSE_OK, lept_parse(&v, "true"));
+	expect_eq_int(LEPT_TRUE, lept_get_type(&v));
+}
+
+static void test_parse_false()
+{
+	lept_value v;
+	v.type = LEPT_TRUE;
+	expect_eq_int(LEPT_PARSE_OK, lept_parse(&v, "false"));
+	expect_eq_int(LEPT_FALSE, lept_get_type(&v));
 }
 
 static void test_parse_null()
@@ -70,6 +86,8 @@ static void test_parse_root_not_singular()
 
 static void test_parse()
 {
+	test_parse_true();
+	test_parse_false();
 	test_parse_null();
 	test_parse_expect_value();
 	test_parse_invalid_value();

@@ -2,8 +2,9 @@
 
 #ifndef LETPJSON_H__
 #define LETPJSON_H__
+#include <cassert>
 
-typedef enum
+enum lept_type
 {
 	LEPT_NULL,
 	LEPT_FALSE,
@@ -12,12 +13,12 @@ typedef enum
 	LEPT_STRING,
 	LEPT_ARRAY,
 	LEPT_OBJECT
-} lept_type;
+};
 
-typedef struct
+struct lept_value
 {
 	lept_type type;
-} lept_value;
+};
 
 enum
 {
