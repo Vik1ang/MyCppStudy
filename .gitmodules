@@ -1,5 +1,0 @@
-[submodule "calculator"]
-	path = calculator
-	url = git@github.com:microsoft/calculator.git
-	branch = release/2103
-
