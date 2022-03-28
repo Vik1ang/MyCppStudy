@@ -43,19 +43,23 @@ static int lept_parse_literal(lept_context* c, leptjson::lept_value* v, const ch
 static int lept_parse_number(lept_context* c, leptjson::lept_value* v)
 {
 	const char* p = c->json;
+	// 负号
 	if (*p == '-') p++;
+	// 整数
 	if (*p == '0') p++;
 	else
 	{
 		if (!ISDIGIT1TO9(*p)) return leptjson::PARSE_INVALID_VALUE;
 		for (p++; ISDIGIT(*p); p++);
 	}
+	// 小数
 	if (*p == '.')
 	{
 		p++;
 		if (!ISDIGIT(*p)) return leptjson::PARSE_INVALID_VALUE;
 		for (p++; ISDIGIT(*p); p++);
 	}
+	// 指数
 	if (*p == 'e' || *p == 'E') {
 		p++;
 		if (*p == '+' || *p == '-') p++;
@@ -96,6 +100,7 @@ int leptjson::lept_parse(lept_value* v, const char* json)
 		lept_parse_whitespace(&c);
 		if (*c.json != '\0')
 		{
+			v->type = LEPT_NULL;
 			ret = PARSE_ROOT_NOT_SINGULAR;
 		}
 	}

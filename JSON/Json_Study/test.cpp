@@ -126,7 +126,6 @@ static void test_parse_root_not_singular()
 	TEST_ERROR(leptjson::PARSE_ROOT_NOT_SINGULAR, "0x0");
 	TEST_ERROR(leptjson::PARSE_ROOT_NOT_SINGULAR, "0x123");
 #endif
-
 }
 
 static void test_parse_number_too_big() {
