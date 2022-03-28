@@ -31,6 +31,9 @@
     <Filter Include="头文件\q6">
       <UniqueIdentifier>{f4e2b66f-b564-4f11-b43a-daf8bb482d9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\q7">
+      <UniqueIdentifier>{18bb73c8-cd5f-44f2-8994-c53c300adab1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Leetcode.cpp">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="q6.hpp">
       <Filter>头文件\q6</Filter>
+    </ClInclude>
+    <ClInclude Include="q7.hpp">
+      <Filter>头文件\q7</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
