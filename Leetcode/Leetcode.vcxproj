@@ -143,7 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data_structure.hpp" />
-    <ClInclude Include="Leetcode.h" />
     <ClInclude Include="q1\q1.hpp" />
     <ClInclude Include="q2.hpp" />
     <ClInclude Include="q3.hpp" />
@@ -151,6 +150,7 @@
     <ClInclude Include="q5.hpp" />
     <ClInclude Include="q6.hpp" />
     <ClInclude Include="q7.hpp" />
+    <ClInclude Include="q8.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
