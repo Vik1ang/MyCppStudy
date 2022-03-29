@@ -195,11 +195,36 @@ static void test_parse_invalid_string_escape()
 #endif
 }
 
-static void test_parse_invalid_string_char() {
+static void test_parse_invalid_string_char()
+{
 #if 1
 	TEST_ERROR(leptjson::PARSE_INVALID_STRING_CHAR, "\"\x01\"");
 	TEST_ERROR(leptjson::PARSE_INVALID_STRING_CHAR, "\"\x1F\"");
 #endif
+}
+
+static void test_parse_invalid_unicode_hex()
+{
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u0\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u01\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u012\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u/000\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\uG000\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u0/00\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u0G00\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u00/0\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u00G0\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u000/\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_HEX, "\"\\u000G\"");
+}
+
+static void test_parse_invalid_unicode_surrogate() {
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_SURROGATE, "\"\\uD800\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_SURROGATE, "\"\\uDBFF\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_SURROGATE, "\"\\uD800\\\\\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_SURROGATE, "\"\\uD800\\uDBFF\"");
+	TEST_ERROR(leptjson::PARSE_INVALID_UNICODE_SURROGATE, "\"\\uD800\\uE000\"");
 }
 
 static void test_access_null()
@@ -263,18 +288,20 @@ static void test_parse()
 	test_access_boolean();
 	test_access_number();
 	test_access_string();
+
+	test_parse_invalid_unicode_hex();
+	test_parse_invalid_unicode_surrogate();
 }
 
 int main(int argc, char* argv[])
 {
 #ifdef _WIN64
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	_CrtSetBreakAlloc(88);
+	//_CrtSetBreakAlloc(88);
 #endif
 
 	test_parse();
 	printf("%d/%d (%3.2f%%) passed\n", test_pass, test_count, test_pass * 100.0 / test_count);
 
-	
 	return main_ret;
 }
