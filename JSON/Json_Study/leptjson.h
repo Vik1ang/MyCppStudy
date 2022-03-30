@@ -3,6 +3,8 @@
 
 namespace leptjson
 {
+	struct lept_member;
+
 	enum lept_type
 	{
 		LEPT_NULL,
@@ -26,18 +28,29 @@ namespace leptjson
 		PARSE_INVALID_STRING_CHAR,
 		PARSE_INVALID_UNICODE_HEX,
 		PARSE_INVALID_UNICODE_SURROGATE,
-		PARSE_MISS_COMMA_OR_SQUARE_BRACKET
+		PARSE_MISS_COMMA_OR_SQUARE_BRACKET,
+		PARSE_MISS_KEY,
+		PARSE_MISS_COLON,
+		PARSE_MISS_COMMA_OR_CURLY_BRACKET
 	};
 
 	struct lept_value
 	{
 		union
 		{
-			struct { lept_value* e; size_t size; } a; // array
-			struct { char* s; size_t len; } s;
-			double n;
+			struct { lept_member* m; size_t size; } o;	// object
+			struct { lept_value* e; size_t size; } a;	// array
+			struct { char* s; size_t len; } s;			// string
+			double n;									// number
 		} u;
 		lept_type type;
+	};
+
+	struct lept_member
+	{
+		char* k;		// member key
+		size_t k_len;	// member key length
+		lept_value v;	// member value
 	};
 
 #define lept_init(v) do { (v)->type = leptjson::LEPT_NULL; } while(0)
@@ -62,6 +75,11 @@ namespace leptjson
 
 	size_t lept_get_array_size(const lept_value* v);
 	lept_value* lept_get_array_element(const lept_value* v, size_t index);
+
+	size_t lept_get_object_size(const lept_value* v);
+	const char* lept_get_object_key(const lept_value* v, size_t index);
+	size_t lept_get_object_key_length(const lept_value* v, size_t index);
+	lept_value* lept_get_object_value(const lept_value* v, size_t index);
 } // namespace leptjson
 
 #endif // LEPTJSON_H_
