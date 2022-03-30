@@ -35,6 +35,12 @@ static int test_pass = 0;
 #define EXPECT_TRUE(actual) EXPECT_EQ_BASE((actual) != 0, "true", "false", "%s")
 #define EXPECT_FALSE(actual) EXPECT_EQ_BASE((actual) == 0, "false", "true", "%s")
 
+#if defined(_MSC_VER)
+#define EXPECT_EQ_SIZE_T(expect, actual) EXPECT_EQ_BASE((expect) == (actual), (size_t)expect, (size_t)actual, "%Iu")
+#else
+#define EXPECT_EQ_SIZE_T(expect, actual) EXPECT_EQ_BASE((expect) == (actual), (size_t)expect, (size_t)actual, "%zu")
+#endif
+
 static void test_parse_null()
 {
 	leptjson::lept_value v;
@@ -121,10 +127,47 @@ static void test_parse_string()
 	TEST_STRING("", "\"\"");
 	TEST_STRING("Hello", "\"Hello\"");
 
-#if 0
+#if 1
 	TEST_STRING("Hello\nWorld", "\"Hello\\nWorld\"");
 	TEST_STRING("\" \\ / \b \f \n \r \t", "\"\\\" \\\\ \\/ \\b \\f \\n \\r \\t\"");
 #endif
+}
+
+static void test_parse_array()
+{
+	size_t j;
+	leptjson::lept_value v;
+
+	/* ... */
+
+	lept_init(&v);
+	EXPECT_EQ_INT(leptjson::PARSE_OK, lept_parse(&v, "[ null , false , true , 123 , \"abc\" ]"));
+	EXPECT_EQ_INT(leptjson::LEPT_ARRAY, lept_get_type(&v));
+	EXPECT_EQ_SIZE_T(5, lept_get_array_size(&v));
+	EXPECT_EQ_INT(leptjson::LEPT_NULL, lept_get_type(lept_get_array_element(&v, 0)));
+	EXPECT_EQ_INT(leptjson::LEPT_FALSE, lept_get_type(lept_get_array_element(&v, 1)));
+	EXPECT_EQ_INT(leptjson::LEPT_TRUE, lept_get_type(lept_get_array_element(&v, 2)));
+	EXPECT_EQ_INT(leptjson::LEPT_NUMBER, lept_get_type(lept_get_array_element(&v, 3)));
+	EXPECT_EQ_INT(leptjson::LEPT_STRING, lept_get_type(lept_get_array_element(&v, 4)));
+	EXPECT_EQ_DOUBLE(123.0, lept_get_number(lept_get_array_element(&v, 3)));
+	EXPECT_EQ_STRING("abc", lept_get_string(lept_get_array_element(&v, 4)), lept_get_string_length(lept_get_array_element(&v, 4)));
+	lept_free(&v);
+
+	lept_init(&v);
+	EXPECT_EQ_INT(leptjson::PARSE_OK, lept_parse(&v, "[ [ ] , [ 0 ] , [ 0 , 1 ] , [ 0 , 1 , 2 ] ]"));
+	EXPECT_EQ_INT(leptjson::LEPT_ARRAY, lept_get_type(&v));
+	EXPECT_EQ_SIZE_T(4, lept_get_array_size(&v));
+	for (size_t i = 0; i < 4; i++) {
+		leptjson::lept_value* a = lept_get_array_element(&v, i);
+		EXPECT_EQ_INT(leptjson::LEPT_ARRAY, lept_get_type(a));
+		EXPECT_EQ_SIZE_T(i, lept_get_array_size(a));
+		for (j = 0; j < i; j++) {
+			leptjson::lept_value* e = lept_get_array_element(a, j);
+			EXPECT_EQ_INT(leptjson::LEPT_NUMBER, lept_get_type(e));
+			EXPECT_EQ_DOUBLE((double)j, lept_get_number(e));
+		}
+	}
+	lept_free(&v);
 }
 
 #define TEST_ERROR(error, json)\
@@ -276,6 +319,9 @@ static void test_parse()
 	test_parse_true();
 	test_parse_false();
 	test_parse_number();
+	test_parse_string();
+	test_parse_array();
+
 	test_parse_expect_value();
 	test_parse_invalid_value();
 	test_parse_root_not_singular();
@@ -297,7 +343,7 @@ int main(int argc, char* argv[])
 {
 #ifdef _WIN64
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	//_CrtSetBreakAlloc(88);
+	//_CrtSetBreakAlloc(100);
 #endif
 
 	test_parse();
