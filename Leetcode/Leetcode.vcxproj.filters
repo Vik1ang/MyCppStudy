@@ -16,9 +16,6 @@
     <Filter Include="头文件\q1">
       <UniqueIdentifier>{6ba33fd8-e542-44e2-85bc-57c290117018}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\q2">
-      <UniqueIdentifier>{76592d84-0c6a-4e00-90e3-8d543dab87eb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\q3">
       <UniqueIdentifier>{02866bb1-cca8-4c6e-bfff-63072d9945b6}</UniqueIdentifier>
     </Filter>
@@ -40,6 +37,9 @@
     <Filter Include="头文件\q9">
       <UniqueIdentifier>{9b760742-b496-4e5b-ba64-61d943049aee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\q1\q2">
+      <UniqueIdentifier>{76592d84-0c6a-4e00-90e3-8d543dab87eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Leetcode.cpp">
@@ -51,7 +51,7 @@
       <Filter>头文件\q1</Filter>
     </ClInclude>
     <ClInclude Include="q2.hpp">
-      <Filter>头文件\q2</Filter>
+      <Filter>头文件\q1\q2</Filter>
     </ClInclude>
     <ClInclude Include="data_structure.hpp">
       <Filter>头文件</Filter>
