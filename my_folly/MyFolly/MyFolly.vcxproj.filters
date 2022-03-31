@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\detail">
+      <UniqueIdentifier>{1f07537d-293c-479d-8592-4e65cb8de39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\portability">
+      <UniqueIdentifier>{95405a98-bbb6-4fa4-bea2-9df53aca43cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -24,6 +30,18 @@
     <ClInclude Include="Interface.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IPAddress.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IPAddressException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="detail\IPAddress.h">
+      <Filter>头文件\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="portability\Sockets.h">
+      <Filter>头文件\portability</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -33,6 +51,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="IInterface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IPAddress.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

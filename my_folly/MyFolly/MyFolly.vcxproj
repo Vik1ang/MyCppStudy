@@ -153,13 +153,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="detail\IPAddress.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Interface.h" />
+    <ClInclude Include="IPAddress.h" />
+    <ClInclude Include="IPAddressException.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="portability\Sockets.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="IInterface.cpp" />
+    <ClCompile Include="IPAddress.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
