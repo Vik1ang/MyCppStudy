@@ -27,6 +27,9 @@
     <ClInclude Include="include\allocator.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\construct.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -36,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="allocator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="construct.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -18,7 +18,7 @@ T* mystl::allocator<T>::allocate(size_type n)
 	}
 	return static_cast<T*>(::operator new(n * sizeof(T)));
 }
-	
+
 template <class T>
 void mystl::allocator<T>::deallocate(T* ptr)
 {
@@ -74,10 +74,4 @@ template <class T>
 void mystl::allocator<T>::destroy(T* first, T* last)
 {
 	// TODO: 现在还没用上
-}
-
-
-void mystl::A::print()
-{
-	std::cout << "abc\n";
 }

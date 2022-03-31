@@ -4,6 +4,5 @@
 
 int main(int argc, char* argv[])
 {
-	mystl::A::print();
 	std::cout << "stsda\n";
 }

@@ -36,12 +36,10 @@ namespace mystl
 		static void destroy(T* ptr);
 		static void destroy(T* first, T* last);
 	};
-
-	class MYSTL_API A
-	{
-	public:
-		static void print();
-	};
 } // namespace mystl
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif // _MSC_VER
 
 #endif  // MYTINYSTL_ALLOCATOR_H_
