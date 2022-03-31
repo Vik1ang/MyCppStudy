@@ -445,6 +445,12 @@ char* lept_stringify(const leptjson::lept_value* v, size_t* length)
 	c.stack = (char*)malloc(c.size = LEPT_PARSE_STRINGIFY_INIT_SIZE);
 	c.top = 0;
 	lept_stringify_value(&c, v);
+	if (length)
+	{
+		*length = c.top;
+	}
+	PUTC(&c, '\0');
+	return c.stack;
 }
 
 void leptjson::lept_free(lept_value* v)
