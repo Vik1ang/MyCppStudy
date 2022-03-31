@@ -411,7 +411,7 @@ static void test_parse()
 	test_parse_number();
 	test_parse_string();
 	test_parse_array();
-	//test_parse_object();
+	test_parse_object();
 
 	test_parse_expect_value();
 	test_parse_invalid_value();

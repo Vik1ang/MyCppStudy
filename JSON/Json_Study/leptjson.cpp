@@ -9,15 +9,21 @@
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
+#include <cstdio>
 
 #ifndef LEPT_PARSE_STACK_INIT_SIZE
 #define LEPT_PARSE_STACK_INIT_SIZE 256
+#endif
+
+# ifndef LEPT_PARSE_STRINGIFY_INIT_SIZE
+#define LEPT_PARSE_STRINGIFY_INIT_SIZE 256
 #endif
 
 #define EXPECT(c, ch)       do { assert(*c->json == (ch)); c->json++; } while(0)
 #define ISDIGIT(ch)         ((ch) >= '0' && (ch) <= '9')
 #define ISDIGIT1TO9(ch)     ((ch) >= '1' && (ch) <= '9')
 #define PUTC(c, ch)			do { *(char*)lept_context_push(c, sizeof(char)) = (ch); } while(0)
+#define PUTS(c, s, len)     memcpy(lept_context_push(c, len), s, len)
 
 struct lept_context
 {
@@ -410,6 +416,35 @@ int leptjson::lept_parse(lept_value* v, const char* json)
 	assert(c.top == 0);
 	free(c.stack);
 	return ret;
+}
+
+static void lept_stringify_value(lept_context* c, const leptjson::lept_value* v)
+{
+	switch (v->type)
+	{
+	case leptjson::LEPT_NULL: PUTS(c, "null", 4); break;
+	case leptjson::LEPT_FALSE: PUTS(c, "false", 5); break;
+	case leptjson::LEPT_TRUE: PUTS(c, "true", 4); break;
+	case leptjson::LEPT_NUMBER:
+		c->top -= 32 - sprintf(static_cast<char*>(lept_context_push(c, 32)), "%.17g", v->u.n);
+		break;
+	case leptjson::LEPT_STRING:
+		break;
+	case leptjson::LEPT_ARRAY:
+		break;
+	case leptjson::LEPT_OBJECT:
+		break;
+	default:assert(0 && "invalid type");
+	}
+}
+
+char* lept_stringify(const leptjson::lept_value* v, size_t* length)
+{
+	lept_context c;
+	assert(v != nullptr);
+	c.stack = (char*)malloc(c.size = LEPT_PARSE_STRINGIFY_INIT_SIZE);
+	c.top = 0;
+	lept_stringify_value(&c, v);
 }
 
 void leptjson::lept_free(lept_value* v)
