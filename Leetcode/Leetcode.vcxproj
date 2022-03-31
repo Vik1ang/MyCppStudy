@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data_structure.hpp" />
+    <ClInclude Include="q10.hpp" />
     <ClInclude Include="q1\q1.hpp" />
     <ClInclude Include="q2.hpp" />
     <ClInclude Include="q3.hpp" />
