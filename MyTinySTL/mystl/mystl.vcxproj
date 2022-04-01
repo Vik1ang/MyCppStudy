@@ -162,6 +162,7 @@ xcopy /Y /F "$(ProjectDir)include\*.h" "$(SolutionDir)MyTinySTL\TestMySTL\includ
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\allocator.h" />
     <ClInclude Include="include\construct.h" />
+    <ClInclude Include="include\iterator.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
