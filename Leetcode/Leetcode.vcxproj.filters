@@ -46,6 +46,9 @@
     <Filter Include="头文件\q11">
       <UniqueIdentifier>{89c70ff3-24bf-486a-bb5d-c56fe00cd17d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\q12">
+      <UniqueIdentifier>{57b07b14-6a84-47d7-8ca7-59d9d8cc3c40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Leetcode.cpp">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="q11.hpp">
       <Filter>头文件\q11</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution.hpp">
+      <Filter>头文件\q12</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

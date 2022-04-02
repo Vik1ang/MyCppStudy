@@ -154,6 +154,7 @@
     <ClInclude Include="q7.hpp" />
     <ClInclude Include="q8.hpp" />
     <ClInclude Include="q9.hpp" />
+    <ClInclude Include="Solution.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
