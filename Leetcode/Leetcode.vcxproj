@@ -145,6 +145,7 @@
     <ClInclude Include="data_structure.hpp" />
     <ClInclude Include="q10.hpp" />
     <ClInclude Include="q11.hpp" />
+    <ClInclude Include="q13.hpp" />
     <ClInclude Include="q1\q1.hpp" />
     <ClInclude Include="q2.hpp" />
     <ClInclude Include="q3.hpp" />
@@ -154,7 +155,7 @@
     <ClInclude Include="q7.hpp" />
     <ClInclude Include="q8.hpp" />
     <ClInclude Include="q9.hpp" />
-    <ClInclude Include="Solution.hpp" />
+    <ClInclude Include="q12.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

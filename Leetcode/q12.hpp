@@ -23,8 +23,10 @@ public:
 	std::string intToRoman(int num)
 	{
 		std::string roman;
-		for (auto &[value, symbol] : value_symbols)
+		for (const auto& pair : value_symbols)
 		{
+			const int value = pair.first;
+			const std::string symbol = pair.second;
 			while (num >= value)
 			{
 				num -= value;
