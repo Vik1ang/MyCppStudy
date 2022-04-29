@@ -668,3 +668,8 @@ leptjson::lept_value* leptjson::lept_get_object_value(const lept_value* v, size_
 	assert(index < v->u.o.size);
 	return &v->u.o.m[index].v;
 }
+
+size_t leptjson::lept_find_object_index(const lept_value* v, const char* key, size_t klen)
+{
+
+}

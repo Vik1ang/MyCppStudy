@@ -147,6 +147,7 @@
     <ClInclude Include="q11.hpp" />
     <ClInclude Include="q13.hpp" />
     <ClInclude Include="q15.hpp" />
+    <ClInclude Include="q16.hpp" />
     <ClInclude Include="q1\q1.hpp" />
     <ClInclude Include="q2.hpp" />
     <ClInclude Include="q3.hpp" />
