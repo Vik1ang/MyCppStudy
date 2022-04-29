@@ -1,7 +1,7 @@
 #include "../data_structure/ListNode.h"
 
 namespace q2 {
-    class Solution {
+    class Solution1 {
     public:
         ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
             ListNode *head = nullptr;
