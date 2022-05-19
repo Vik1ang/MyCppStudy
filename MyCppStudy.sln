@@ -17,8 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bilibili_study", "bilibili_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "贪吃蛇案例", "贪吃蛇案例\贪吃蛇案例.vcxproj", "{30960F58-EB34-404D-A53E-9AE893EC9194}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Leetcode", "Leetcode\Leetcode.vcxproj", "{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "Json", "{A9367501-78C7-4262-AF3B-088D140A9BCB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Json_Study", "JSON\Json_Study\Json_Study.vcxproj", "{DD0393D9-5D9E-4E67-89AF-213A438C99AA}"
@@ -41,7 +39,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSModePros", "mini_project\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PortScannerTool", "mini_project\PortScannerTool\PortScannerTool.vcxproj", "{2FAB541E-C76E-4FE6-B8C3-01BD9E296E4C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Programming Windows", "Programming Windows\Programming Windows.vcxproj", "{F9756D67-9F0B-4AB9-92A6-239EA9A21506}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testlogger", "testlogger\testlogger.vcxproj", "{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,14 +97,6 @@ Global
 		{30960F58-EB34-404D-A53E-9AE893EC9194}.Release|x64.Build.0 = Release|x64
 		{30960F58-EB34-404D-A53E-9AE893EC9194}.Release|x86.ActiveCfg = Release|Win32
 		{30960F58-EB34-404D-A53E-9AE893EC9194}.Release|x86.Build.0 = Release|Win32
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Debug|x64.ActiveCfg = Debug|x64
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Debug|x64.Build.0 = Debug|x64
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Debug|x86.ActiveCfg = Debug|Win32
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Debug|x86.Build.0 = Debug|Win32
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Release|x64.ActiveCfg = Release|x64
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Release|x64.Build.0 = Release|x64
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Release|x86.ActiveCfg = Release|Win32
-		{FE2E0594-1B90-47B8-96AB-A75BF73FDEB7}.Release|x86.Build.0 = Release|Win32
 		{DD0393D9-5D9E-4E67-89AF-213A438C99AA}.Debug|x64.ActiveCfg = Debug|x64
 		{DD0393D9-5D9E-4E67-89AF-213A438C99AA}.Debug|x64.Build.0 = Debug|x64
 		{DD0393D9-5D9E-4E67-89AF-213A438C99AA}.Debug|x86.ActiveCfg = Debug|Win32
@@ -163,14 +153,14 @@ Global
 		{2FAB541E-C76E-4FE6-B8C3-01BD9E296E4C}.Release|x64.Build.0 = Release|x64
 		{2FAB541E-C76E-4FE6-B8C3-01BD9E296E4C}.Release|x86.ActiveCfg = Release|Win32
 		{2FAB541E-C76E-4FE6-B8C3-01BD9E296E4C}.Release|x86.Build.0 = Release|Win32
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Debug|x64.ActiveCfg = Debug|x64
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Debug|x64.Build.0 = Debug|x64
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Debug|x86.ActiveCfg = Debug|Win32
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Debug|x86.Build.0 = Debug|Win32
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Release|x64.ActiveCfg = Release|x64
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Release|x64.Build.0 = Release|x64
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Release|x86.ActiveCfg = Release|Win32
-		{F9756D67-9F0B-4AB9-92A6-239EA9A21506}.Release|x86.Build.0 = Release|Win32
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Debug|x64.ActiveCfg = Debug|x64
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Debug|x64.Build.0 = Debug|x64
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Debug|x86.ActiveCfg = Debug|Win32
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Debug|x86.Build.0 = Debug|Win32
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Release|x64.ActiveCfg = Release|x64
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Release|x64.Build.0 = Release|x64
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Release|x86.ActiveCfg = Release|Win32
+		{45A4DC31-FEDA-4416-A39F-B2F3CBC4B262}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
