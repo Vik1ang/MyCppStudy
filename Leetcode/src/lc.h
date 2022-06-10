@@ -7,5 +7,6 @@
 #include "question/q4.cpp"
 #include "question/q5.cpp"
 #include "question/q6.cpp"
+#include "question/q7.cpp"
 
 #endif //LEETCODE_LC_H
