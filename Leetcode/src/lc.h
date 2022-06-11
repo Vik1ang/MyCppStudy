@@ -9,5 +9,6 @@
 #include "question/q6.cpp"
 #include "question/q7.cpp"
 #include "question/q8.cpp"
+#include "question/q9.cpp"
 
 #endif //LEETCODE_LC_H
