@@ -12,5 +12,6 @@
 #include "question/q9.cpp"
 #include "question/q10.cpp"
 #include "question/q11.cpp"
+#include "question/q12.cpp"
 
 #endif //LEETCODE_LC_H
