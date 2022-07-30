@@ -7,4 +7,8 @@
 
 #pragma endregion
 
+#pragma region tree
+#include "tree/q94.cpp"
+#pragma endregion
+
 #endif // LEETCODE_H

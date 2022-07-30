@@ -11,6 +11,9 @@ project(cpp_case LANGUAGES CXX C)
 add_executable(leetcode "")
 set_target_properties(leetcode PROPERTIES OUTPUT_NAME "leetcode")
 set_target_properties(leetcode PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x64/release")
+target_include_directories(leetcode PRIVATE
+    includes
+)
 set_property(TARGET leetcode PROPERTY CXX_STANDARD 17)
 target_compile_options(leetcode PRIVATE
     $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>

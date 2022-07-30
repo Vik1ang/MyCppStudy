@@ -11,3 +11,4 @@ end
 target("leetcode")
     set_kind("binary")
     add_files("src/leetcode.cpp")
+    add_includedirs("includes")
