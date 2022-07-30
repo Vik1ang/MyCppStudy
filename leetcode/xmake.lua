@@ -10,4 +10,4 @@ end
 
 target("leetcode")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/leetcode.cpp")

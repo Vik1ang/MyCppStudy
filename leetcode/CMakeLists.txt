@@ -10,24 +10,27 @@ project(cpp_case LANGUAGES CXX C)
 # target
 add_executable(leetcode "")
 set_target_properties(leetcode PROPERTIES OUTPUT_NAME "leetcode")
-set_target_properties(leetcode PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x86/debug")
+set_target_properties(leetcode PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x64/release")
 set_property(TARGET leetcode PROPERTY CXX_STANDARD 17)
+target_compile_options(leetcode PRIVATE
+    $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>
+    $<$<COMPILE_LANGUAGE:CXX>:-DNDEBUG>
+)
 target_compile_features(leetcode PRIVATE cxx_std_17)
 if(MSVC)
-    target_compile_options(leetcode PRIVATE $<$<CONFIG:Debug>:-Od>)
+    target_compile_options(leetcode PRIVATE $<$<CONFIG:Release>:-Ox -fp:fast>)
 else()
-    target_compile_options(leetcode PRIVATE -O0)
+    target_compile_options(leetcode PRIVATE -O3)
 endif()
 if(MSVC)
-    target_compile_options(leetcode PRIVATE -Zi)
 else()
-    target_compile_options(leetcode PRIVATE -g)
+    target_compile_options(leetcode PRIVATE -fvisibility=hidden)
 endif()
 if(MSVC)
     set_property(TARGET leetcode PROPERTY
         MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 target_sources(leetcode PRIVATE
-    src/main.cpp
+    src/leetcode.cpp
 )
 
