@@ -11,8 +11,11 @@ project(cpp_case LANGUAGES CXX C)
 add_executable(banking "")
 set_target_properties(banking PROPERTIES OUTPUT_NAME "banking")
 set_target_properties(banking PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x86/debug")
-set_property(TARGET banking PROPERTY CXX_STANDARD 14)
-target_compile_features(banking PRIVATE cxx_std_14)
+target_include_directories(banking PRIVATE
+    banking/include
+)
+set_property(TARGET banking PROPERTY CXX_STANDARD 17)
+target_compile_features(banking PRIVATE cxx_std_17)
 if(MSVC)
     target_compile_options(banking PRIVATE $<$<CONFIG:Debug>:-Od>)
 else()
@@ -29,5 +32,5 @@ if(MSVC)
 endif()
 target_sources(banking PRIVATE
     banking/src/main.cpp
-)
+ "banking/include/admin.h" "banking/include/customer.h" "banking/src/admin.cpp" "banking/src/customer.cpp" "banking/include/bst_node.h" "banking/src/bst_node.cpp")
 
