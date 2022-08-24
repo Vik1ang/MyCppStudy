@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <memory>
 #include <stdio.h>
 
 struct C {
@@ -16,15 +17,12 @@ struct C {
 
 int main()
 {
-    C* p = new C;
+    std::unique_ptr<C> p = std::make_unique<C>();
 
-    if (rand() != 0) {
-        printf("出了点小状况……\n");
-        // delete p; // 忘记释放指针
-        return 1;
+    if (1 + 1 == 2) {
+        printf("出了点小状况....\n");
+        return 1; // 自动释放 p
     }
 
-    delete p;
-
-    return 0;
+    return 0; // 自动释放 p
 }
