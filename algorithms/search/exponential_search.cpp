@@ -17,7 +17,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
-#include "binary_search.cpp"
+//#include "binary_search.cpp"
 #ifdef _MSC_VER
 #include <string>  /// use for MS Visual C++
 #else
@@ -95,5 +95,5 @@ int main() {
 //    assert(struzik_search<int>(sorted_array, 7, 7) == sorted_array);
 //    // TEST CASES
 //    delete[] sorted_array;
-//    return 0;
+    return 0;
 }
